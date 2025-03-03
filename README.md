@@ -74,7 +74,11 @@ Further Steps:
 
 ![SOC DashboardCapture3](https://github.com/user-attachments/assets/f2c04130-145a-4716-8342-ade622616c3b)
 
-I continued the process of triaging alerts as they came in.  A few had attachments that I was able to open in the VM that they provided (Sandbox).  
+I continued the process of triaging alerts as they came in.  A few had attachments that I was able to open in the VM that they provided (Sandbox). I was able to use the "more" command in Powershell to get more information about the attached file.
+In one case you can see that if you were to run the file it was going to download a string installing powercat on the device.  A quick search of powercat shows that it can be used to gain remote control over the compromised system.  Leading to data exfil, persistence, lateral movement, and C2.
+
+![VMCapture](https://github.com/user-attachments/assets/ff052ee4-bed4-458e-8843-46568bf58437)
+
 I also used VirusTotal and some other outside sources to research these alerts.  I did find True positives that were documented and marked for escalation.
 These phishing alerts were mostly low severity, but I am looking forward to the challenge of alerts of a higher severity, requiring more indepth investigation.
 
