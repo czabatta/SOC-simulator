@@ -1,0 +1,13 @@
+name: Spellcheck
+
+on: [push, pull_request]
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Spellcheck
+      uses: check-spelling/check-spelling@main
+      with:
+        config: .github/actions/spellcheck/config
