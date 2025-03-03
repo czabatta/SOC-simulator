@@ -1,6 +1,6 @@
 # SOC-simulator
 
-## Ojective
+## Objective
 Using TryHackMe SOC simulator to triage phishing alerts.
 
 The objective of this lab is to show use of a real SOC environment.
