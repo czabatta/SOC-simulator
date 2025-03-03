@@ -3,7 +3,7 @@
 ## Objective
 Using TryHackMe SOC simulator to triage phishing alerts.
 
-The objective of this lab is to show use of a real SOC enviroment.
+The objective of this lab is to show use of a real SOC environment.
 Using the SOC dashboard, I will take ownership of alerts based on their severity, triage the alert, assign whether the alert is True positive or False positive, write a case report, and finally designate whether the alert needs escalation.
 
 ## Skills Learned
