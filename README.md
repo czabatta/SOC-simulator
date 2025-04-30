@@ -45,6 +45,7 @@ I assigned this alert a False positive and wrote the following Case Report:
 Investigation Details:
 
 Data Source: Emails
+
 Steps Taken:
 
     1.  Reviewed Splunk logs for related email correspondence.
@@ -56,14 +57,18 @@ Results:
     2.  The email domain (hatventuresworldwide.online) was flagged as unusual, but no malicious activity was identified.
 
 Conclusion:
+
 Determination: False Positive
+
 Rationale:
 
     1. The initial suspicion was based on the unusual top-level domain.
     2. No further suspicious activity or follow-up actions were identified.
 
 Action Taken:
+
 Alert Classification: False Positive
+
 Further Steps:
 
     1.  Fine-tune the detection rule to improve accuracy and reduce false positives.
